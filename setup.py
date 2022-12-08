@@ -4,7 +4,7 @@ import re
 import sys
 from shutil import rmtree
 
-from setuptools import Command, find_packages, setup
+from setuptools import Command, setup
 
 # Package meta-data.
 name = "ternaus_cleantext"
@@ -16,7 +16,7 @@ requires_python = ">=3.0.0"
 current_dir = os.path.abspath(os.path.dirname(__file__))
 
 
-def get_version():
+def get_version() -> str:
     version_file = os.path.join(current_dir, name, "__init__.py")
     with io.open(version_file, encoding="utf-8") as f:
         return re.search(r'^__version__ = [\'"]([^\'"]*)[\'"]', f.read(), re.M).group(1)
@@ -34,13 +34,14 @@ version = get_version()
 about = {"__version__": version}
 
 
-def get_long_description():
+def get_long_description() -> str:
     base_dir = os.path.abspath(os.path.dirname(__file__))
     with io.open(os.path.join(base_dir, "README.md"), encoding="utf-8") as f:
         return f.read()
 
 
 class UploadCommand(Command):
+
     """Support setup.py upload."""
 
     description = "Build and publish the package."
@@ -49,7 +50,6 @@ class UploadCommand(Command):
     @staticmethod
     def status(s):
         """Print things in bold."""
-        print(s)
 
     def initialize_options(self):
         pass
@@ -86,7 +86,6 @@ setup(
     author="Vladimir Iglovikov",
     license="MIT",
     url=url,
-    # packages=find_packages(exclude=["tests", "docs", "images"]),
     packages=["ternaus_cleantext"],
     install_requires=required,
     classifiers=[

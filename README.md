@@ -16,7 +16,7 @@ Cleans text similar, but stricter than in the CLIP model:
 2. Removes html tags
 3. Removes URLs
 4. Removes extra white spaces
-5. Text to lower case 
+5. Text to lower case
 
 ```python
 from ternaus_cleantext.ternaus_cleantext import clean_text

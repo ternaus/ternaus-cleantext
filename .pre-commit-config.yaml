@@ -1,4 +1,6 @@
-exclude: tests
+exclude: |
+  tests
+  setup.py
 
 ci:
   autofix_commit_msg: |
@@ -21,6 +23,7 @@ repos:
     rev: 898888921065e200573d2daaa21a9232ca310d34
     hooks:
       - id: ruff
+        exclude: ^tests/
   - repo: https://github.com/abravalheri/validate-pyproject
     rev: e22efabdc7203a4a6388231f8052c296cbb6eb8d
     hooks:
@@ -64,6 +67,7 @@ repos:
       - id: mypy
         additional_dependencies: [ types-PyYAML==6.0.10, types_requests==2.28.8, types-ujson==5.6.0 ]
         args: [ --ignore-missing-imports, --warn-no-return, --warn-redundant-casts, --disallow-incomplete-defs ]
+        exclude: ^setup.py
 
   - repo: https://github.com/sourcery-ai/sourcery
     rev: v1.0.1

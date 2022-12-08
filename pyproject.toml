@@ -22,6 +22,7 @@ exclude = '''
   | build
   | dist
   | node_modules
+  setup.py
 )/
 '''
 
@@ -56,7 +57,7 @@ exclude = [".bzr",
     ".idea",
 ]
 
-extend-exclude = ["tests"]
+extend-exclude = ["tests", "setup.py"]
 per-file-ignores = { }
 
 # Allow unused variables when underscore-prefixed.
